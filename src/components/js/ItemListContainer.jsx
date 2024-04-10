@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import bola from '../../images/bola.jpg'
 import camisa from '../../images/camisa_nike.jpg'
 import conjunto_01 from '../../images/conjunto_puma.jpg'
@@ -172,10 +172,10 @@ const ItemListContainer = () => {
                    <p>{item.descricao}</p>
                    <button onClick={() => handleDetalhesClick(item.id)}>Detalhes Produto</button>  
                    </li>
-                   {(index + 1) % 6 === 0 && <br/>} {/* Insert line break after every 6 items */}
+                   {(index !== 0 && (index + 1) % 6 === 0) && <br/>}
                    </React.Fragment>
                 ))}   
-               </ul> 
+               </ul>  
 
             )
 

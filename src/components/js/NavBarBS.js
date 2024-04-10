@@ -8,12 +8,10 @@ export const NavbarBootstrap = () =>{
 
 
              return (
-
-           
-            <Navbar bg="light" data-bs-theme="light">      
+           <Navbar bg="light" data-bs-theme="light">      
             <Navbar expand="lg" className="bg-body-tertiary">
               <Container>
-               <Navbar.Brand href="#home">Home</Navbar.Brand>
+               <Navbar.Brand href="/category/:id">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
@@ -27,10 +25,8 @@ export const NavbarBootstrap = () =>{
                       </NavDropdown.Item>
                  </NavDropdown>
                  <Nav.Link href="#link"><CartWidget></CartWidget> </Nav.Link>
-              
-            
-                 </Nav>
-                </Navbar.Collapse>
+               </Nav>
+              </Navbar.Collapse>
               </Container>
 
             </Navbar>
