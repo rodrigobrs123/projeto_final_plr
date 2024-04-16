@@ -1,15 +1,15 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+//import { useLocation } from 'react-router-dom';
 import ItemListContainer from './components/js/ItemListContainer';
 import ItemDetailContainer from './components/js/ItemDetailContainer';
 import NavbarBootstrap from './components/js/NavBarBS';
-import Pedido from './components/js/Pedido';
-
+import CartContext from './components/js/CartContext';
 //import { Nav } from 'react-bootstrap';
 
 function App() {
-  return (
+  return ( 
     <BrowserRouter>
       <div className="App">
         <Link to="/">
@@ -18,12 +18,13 @@ function App() {
         <br/><br/>
         <NavbarBootstrap>
         </NavbarBootstrap>
-        <Pedido stockItens={10} initialValue={1} />
+     
         <Routes>
           <Route path="/" element={<ItemListContainer/>} />
           <Route path="/category/:id" element={<ItemListContainer/>} />
           <Route path="/item/:id" element={<ItemDetailContainer/>} />
           <Route path="meus_pedidos" element={<ItemListContainer/>}></Route>
+          <Route path="/cart" element={<CartContext estoque={10} valorInicial={0}/>}></Route>
         </Routes>
      </div>
     </BrowserRouter>

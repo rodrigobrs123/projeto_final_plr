@@ -1,6 +1,6 @@
-
 import React from "react";
 import { useLocation } from "react-router-dom";
+import Pedido from "./Pedido";
 
 
 const ItemDetailContainer = () => {
@@ -25,6 +25,7 @@ const {id, nome, preco, descricao, imagem} = itemSelecionado
            <p>ID: {id}</p>
            <p>Preço: {preco}</p>
            <p>Descrição: {descricao}</p>
+           <Pedido stockItens={10} initialValue={0} />
        </div>
      </div> 
      </div>
