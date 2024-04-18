@@ -1,30 +1,39 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import ItemCount from "./ItemCount";
-import { useNavigate } from "react-router-dom"; // Import useLocation and useHistory
+import { useNavigate } from "react-router-dom";
+import { useCart } from "./CartContext";
 
+function Pedido({ stockItens, initialValue, nomeProd, idProd, precoProd, descricaoProd }) {
+    console.log("ENTROU NO PEDIDO", stockItens, initialValue, nomeProd, idProd, precoProd, descricaoProd);
 
-function Pedido({stockItens, initialValue}){
-
-    console.log("ENTROU NO PEDIDO", stockItens,initialValue);
-
-    const [qtdItens,setPedido] = useState(initialValue);
+    const [qtdItens, setQtdItens] = useState(initialValue); // State for quantity of items
     const navigate = useNavigate();
+    const { addItem } = useCart();
 
-    const handleToPedido = (estoque,valorInicial) => {
+    const handleToPedido = () => {
+        const item = {
+            stockItens,
+            initialValue: qtdItens, // Update the quantity of items
+            nomeProd,
+            idProd,
+            precoProd,
+            descricaoProd
+        };
 
-        console.log("ENTROU NO handleToPedido", stockItens,initialValue);
-        setPedido(estoque,valorInicial);
-        navigate("/cart",estoque,valorInicial);
+        addItem(item);
+        navigate("/cart");
+    }
+
+    const handleItemCountChange = (quantity) => {
+        setQtdItens(quantity); // Update the quantity of items
     }
 
     return (
-
         <div>
-           <ItemCount stock={stockItens} initial={qtdItens} onAdd={handleToPedido}></ItemCount> 
+            <ItemCount stock={stockItens} initial={qtdItens} onAdd={handleItemCountChange} />
+            <button onClick={handleToPedido}>Adicionar ao Carrinho</button>
         </div>
     );
-
 }
 
 export default Pedido;

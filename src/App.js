@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import ItemListContainer from './components/js/ItemListContainer';
 import ItemDetailContainer from './components/js/ItemDetailContainer';
 import NavbarBootstrap from './components/js/NavBarBS';
-import CartContext from './components/js/CartContext';
+import Carrinho from './components/js/Carrinho';
 //import { Nav } from 'react-bootstrap';
 
 function App() {
@@ -18,13 +18,13 @@ function App() {
         <br/><br/>
         <NavbarBootstrap>
         </NavbarBootstrap>
-     
+
         <Routes>
           <Route path="/" element={<ItemListContainer/>} />
           <Route path="/category/:id" element={<ItemListContainer/>} />
           <Route path="/item/:id" element={<ItemDetailContainer/>} />
           <Route path="meus_pedidos" element={<ItemListContainer/>}></Route>
-          <Route path="/cart" element={<CartContext estoque={10} valorInicial={0}/>}></Route>
+          <Route path="/cart" element={<Carrinho/>}></Route>
         </Routes>
      </div>
     </BrowserRouter>

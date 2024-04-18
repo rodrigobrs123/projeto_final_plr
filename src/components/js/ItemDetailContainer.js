@@ -25,7 +25,7 @@ const {id, nome, preco, descricao, imagem} = itemSelecionado
            <p>ID: {id}</p>
            <p>Preço: {preco}</p>
            <p>Descrição: {descricao}</p>
-           <Pedido stockItens={10} initialValue={0} />
+            <Pedido stockItens={10} initialValue={0} nomeProd={nome} idProd={id} precoProd={preco} descricaoProd={descricao}/>
        </div>
      </div> 
      </div>
