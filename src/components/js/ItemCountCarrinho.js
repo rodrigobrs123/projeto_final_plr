@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function ItemCount({ initial, onAdd, handleDecrement }) {
+function ItemCountCarrinho({ initial, onAdd, handleDecrement }) {
   const [count, setCount] = useState(initial);
 
   const handleIncrement = () => {
@@ -20,16 +20,14 @@ function ItemCount({ initial, onAdd, handleDecrement }) {
 
   return (
     <div className="item">
-      <span>{count}</span>
-      <button onClick={handleDecrementClick}>-</button>
-      <button onClick={handleAddToCart}>Adicionar ao carrinho</button>
-      <button onClick={handleIncrement}>+</button>
+      <button onClick={handleAddToCart}>Remover</button>
+      <button onClick={handleIncrement}>Adicionar</button>
     </div>
   );
 }
 
 // Define default props
-ItemCount.defaultProps = {
+ItemCountCarrinho.defaultProps = {
   onAdd: () => {
     console.warn("onAdd function is not provided");
   },
@@ -39,4 +37,4 @@ ItemCount.defaultProps = {
   initial: 1,
 };
 
-export default ItemCount;
+export default ItemCountCarrinho;

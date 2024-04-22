@@ -6,6 +6,7 @@ import ItemListContainer from './components/js/ItemListContainer';
 import ItemDetailContainer from './components/js/ItemDetailContainer';
 import NavbarBootstrap from './components/js/NavBarBS';
 import Carrinho from './components/js/Carrinho';
+import FinalizaCompra from './components/js/FinalizaCompra';
 //import { Nav } from 'react-bootstrap';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/item/:id" element={<ItemDetailContainer/>} />
           <Route path="meus_pedidos" element={<ItemListContainer/>}></Route>
           <Route path="/cart" element={<Carrinho/>}></Route>
+          <Route path="/finalizarcompra" element={<FinalizaCompra/>}></Route>
         </Routes>
      </div>
     </BrowserRouter>
