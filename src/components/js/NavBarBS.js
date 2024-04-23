@@ -1,42 +1,41 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from "./CartWidget";
-//import ItemListenerContainer from "./ItemListContainer";
-import {Link} from 'react-router-dom';
+// NavBarBS.js
+import React from 'react';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import CartWidget from './CartWidget'; // Importe o CartWidget aqui
+import { useCart } from './CartContext'; // Importe o hook useCart do CartContext
 
-export const NavbarBootstrap = () =>{
+const NavbarBootstrap = () => {
+  const { totalItems } = useCart(); // Obtenha o total de itens do carrinho usando o hook useCart
 
+  return (
+    <Navbar bg="light" data-bs-theme="light">
+      <Container>
+        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Ofertas do Dia</Nav.Link>
+            <Nav.Link href="#link">Cadastro</Nav.Link>
+            <NavDropdown title="Minha Conta" id="basic-nav-dropdown">
+              <NavDropdown.Item>
+                <Link to="meus_pedidos">Meus Pedidos</Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">Sair</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav>
+            <Link to="/cart" className="nav-link">
+              <CartWidget />
+              {totalItems > 0 && (
+                <span className="badge bg-secondary">{totalItems}</span>
+              )}
+            </Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
 
-             return (
-           <Navbar bg="light" data-bs-theme="light">      
-            <Navbar expand="lg" className="bg-body-tertiary">
-              <Container>
-               <Navbar.Brand href="/category/:id">Home</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="me-auto">
-                     <Nav.Link href="#home">Ofertas do Dia</Nav.Link>
-                    <Nav.Link href="#link">Cadastro</Nav.Link>
-                    <NavDropdown title="Minha Conta" id="basic-nav-dropdown">
-                      <NavDropdown.Item ><Link to="meus_pedidos">Meus Pedidos</Link>
-                      </NavDropdown.Item>
-                      <NavDropdown.Item href="#action/3.4">
-                        Sair
-                      </NavDropdown.Item>
-                 </NavDropdown>
-                 <Nav.Link href="#link"><CartWidget></CartWidget> </Nav.Link>
-               </Nav>
-              </Navbar.Collapse>
-              </Container>
-
-            </Navbar>
-            </Navbar>
-          );
-                
-       
-
-    }
-
-
-export default NavbarBootstrap;   
-
+export default NavbarBootstrap;

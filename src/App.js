@@ -1,35 +1,35 @@
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-//import { useLocation } from 'react-router-dom';
+import './App.css';
+import NavbarBootstrap from './components/js/NavBarBS';
 import ItemListContainer from './components/js/ItemListContainer';
 import ItemDetailContainer from './components/js/ItemDetailContainer';
-import NavbarBootstrap from './components/js/NavBarBS';
 import Carrinho from './components/js/Carrinho';
-//import { Nav } from 'react-bootstrap';
+import { CartProvider } from './components/js/CartContext.js';
 
 function App() {
-  return ( 
-    <BrowserRouter>
-      <div className="App">
-        <Link to="/">
-          <h1>Loja de Esportes Paulo Rodrigo Luiz</h1>
-        </Link>
-        <br/><br/>
-        <NavbarBootstrap>
-        </NavbarBootstrap>
-
-        <Routes>
-          <Route path="/" element={<ItemListContainer/>} />
-          <Route path="/category/:id" element={<ItemListContainer/>} />
-          <Route path="/item/:id" element={<ItemDetailContainer/>} />
-          <Route path="meus_pedidos" element={<ItemListContainer/>}></Route>
-          <Route path="/cart" element={<Carrinho/>}></Route>
-        </Routes>
-     </div>
-    </BrowserRouter>
+  return (
+    <CartProvider>
+      <Router>
+        <div className="App">
+          <NavbarBootstrap/>
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:id" element={<ItemListContainer />} />
+            <Route path="/item/:id" element={<ItemDetailContainer />} />
+            <Route path="/meus_pedidos" element={<ItemListContainer />} />
+            <Route path="/cart" element={<Carrinho />} />
+          </Routes>
+        </div>
+      </Router>
+    </CartProvider>
   );
-} 
+}
+
+export default App;
+
 
 /*function Navigation() {
   const location = useLocation();
@@ -44,4 +44,4 @@ function App() {
   return null; // Return null if current route is "/teste"
 }*/
 
-export default App;
+

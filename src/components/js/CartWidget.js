@@ -1,16 +1,21 @@
+// CartWidget.js
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { IoMdCart } from "react-icons/io";
+import { RiShoppingCartLine } from 'react-icons/ri';
+import { useCart } from './CartContext';
 
+const CartWidget = () => {
+  const { cartItems } = useCart();
 
-function CartWidget(){
+  const getTotalItems = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
 
   return (
-    <div className="cart-widget">
-      <IoMdCart></IoMdCart>
+    <div>
+      <p>Carrinho ({getTotalItems()} itens)</p>
+      <RiShoppingCartLine size={24} />
     </div>
-
-
   );
-}
+};
+
 export default CartWidget;
