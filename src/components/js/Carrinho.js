@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCart } from "./CartContext";
+import { useNavigate } from "react-router-dom";
+import ItemCountCarrinho from "./ItemCountCarrinho";
 
 const Carrinho = () => {
    const { cartItems, removeItem, clear } = useCart(); // Destructure removeItem e clear do useCart()

@@ -21,6 +21,7 @@ function Pedido({ stockItens, initialValue, nomeProd, idProd, precoProd, descric
         };
 
         addItem(item);
+        console.log("Entrou no componente Pedido -> handleToPedido", item);
         navigate("/cart");
     }
 
@@ -31,7 +32,7 @@ function Pedido({ stockItens, initialValue, nomeProd, idProd, precoProd, descric
     return (
         <div>
             <ItemCount stock={stockItens} initial={qtdItens} onAdd={handleItemCountChange} />
-            <button onClick={handleToPedido}>Adicionar ao Carrinho</button>
+            <button onClick={handleToPedido}>Ir para Cesta</button>
         </div>
     );
 }
