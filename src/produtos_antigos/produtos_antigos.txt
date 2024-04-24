@@ -61,7 +61,18 @@ const ItemListContainer = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const items = [
-        
+          { id: 1, nome: "Produto 1", preco: 100, descricao: "Detalhes do produto 1", imagem: bola },
+          { id: 2, nome: "Produto 2", preco: 100, descricao: "Detalhes do produto 2", imagem: camisa },
+          { id: 3, nome: "Produto 3", preco: 100, descricao: "Detalhes do produto 3", imagem: casaco_02 },
+          { id: 4, nome: "Produto 4", preco: 100, descricao: "Detalhes do produto 4", imagem: casaco_03 },
+          { id: 5, nome: "Produto 5", preco: 100, descricao: "Detalhes do produto 5", imagem: casaco_04 },
+          { id: 6, nome: "Produto 6", preco: 100, descricao: "Detalhes do produto 6", imagem: casaco_05 },
+          { id: 7, nome: "Produto 7", preco: 100, descricao: "Detalhes do produto 7", imagem: casaco },
+          { id: 8, nome: "Produto 8", preco: 100, descricao: "Detalhes do produto 8", imagem: conjunto_01 },
+          { id: 9, nome: "Produto 9", preco: 100, descricao: "Detalhes do produto 9", imagem: conjunto_02 },
+          { id: 10, nome: "Produto 10", preco: 100, descricao: "Detalhes do produto 10", imagem: conjunto_03 },
+          { id: 11, nome: "Produto 11", preco: 100, descricao: "Detalhes do produto 11", imagem: jaqueta },
+          { id: 12, nome: "Produto 12", preco: 100, descricao: "Detalhes do produto 12", imagem: tenis }
         ];
         resolve(items);
       }, 2000);
