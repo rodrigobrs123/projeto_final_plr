@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import bola from '../../images/bola.jpg';
-import camisa from '../../images/camisa_nike.jpg';
-import conjunto_01 from '../../images/conjunto_puma.jpg';
-import conjunto_02 from '../../images/conjunto_puma_02.jpg';
-import conjunto_03 from '../../images/conjunto_puma_03.jpg';
-import jaqueta from '../../images/jaqueta_puma.jpg';
-import casaco from '../../images/casaco.jpg';
-import casaco_02 from '../../images/casaco_02.jpg';
-import casaco_03 from '../../images/casaco_03.jpg';
-import casaco_04 from '../../images/casaco_04.jpg';
-import casaco_05 from '../../images/casaco_05.jpg';
-import tenis from '../../images/tenis.jpg';
-
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
@@ -69,11 +57,10 @@ const ItemListContainer = () => {
   };
 
   const handleDetalhesClick = (itemId) => {
-    const itemIndex = items.findIndex(item => item.id === itemId);
-    if (itemIndex !== -1) {
-      const itemSelecionado = items[itemIndex];
+    const itemData = data.find(item => item.item.id === itemId);
+    if (itemData) {
       console.log("Clicou no botao!!!", itemId);
-      navigate(`/item/${itemId}`, { state: { itemSelecionado } });
+      navigate(`/item/${itemId}`, { state: { itemSelecionado: itemData.item } });
     } else {
       console.log("Item not found!");
     }
@@ -89,7 +76,7 @@ const ItemListContainer = () => {
             <React.Fragment key={index}>
               <li style={{ marginRight: '20px', marginBottom: '20px' }}>
                 <div onClick={() => handleDetalhesClick(item.id)}>
-                  <img src={item.imagem} alt={item.nome} style={{ width: '150px', height: '150px' }} />
+                  <img src={bola} alt={item.nome} style={{ width: '150px', height: '150px' }} />
                 </div>
                 <h3>{item.nome}</h3>
                 <p>{item.preco}</p>
