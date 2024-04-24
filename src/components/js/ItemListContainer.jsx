@@ -32,6 +32,7 @@ const ItemListContainer = () => {
         const fetchedData = querySnapshot.docs.map(doc => doc.data());
         setData(fetchedData);
         setLoading(false);
+        console.log("Dados Firebase", fetchedData)
       } catch (error) {
         console.error("Error fetching Firebase data:", error);
         setLoading(false);
@@ -76,7 +77,7 @@ const ItemListContainer = () => {
             <React.Fragment key={index}>
               <li style={{ marginRight: '20px', marginBottom: '20px' }}>
                 <div onClick={() => handleDetalhesClick(item.id)}>
-                  <img src={bola} alt={item.nome} style={{ width: '150px', height: '150px' }} />
+                  <img src={item.imagem} alt={item.nome} style={{ width: '150px', height: '150px' }} />
                 </div>
                 <h3>{item.nome}</h3>
                 <p>{item.preco}</p>
