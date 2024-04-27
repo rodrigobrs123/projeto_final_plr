@@ -90,17 +90,6 @@ const ItemListContainer = () => {
         </ul>
       )}
 
-      <h1>Dados Firebase</h1>
-      <ul>
-        {data.map((itemData, index) => (
-          <li key={index}>
-            <p>ID: {itemData.item.id}</p>
-            <p>Nome: {itemData.item.nome}</p>
-            <p>Descrição: {itemData.item.descricao}</p>
-            <p>Preço: {itemData.item.preco}</p>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
