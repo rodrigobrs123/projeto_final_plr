@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useCart } from "./CartContext";
 import { useNavigate } from "react-router-dom";
 import ItemCountCarrinho from "./ItemCountCarrinho";
+import { getFirestore, collection, addDoc } from "firebase/firestore"; // Import Firestore functions from Firebase
 
 const Carrinho = () => {
   const { removeItem, cartItems, setCartItems } = useCart();
@@ -39,10 +40,19 @@ const Carrinho = () => {
     removeItem(item);
   };
 
-  const handleToFinalizarCompra = () => {
-     navigate("/finalizarcompra");
-  }
-  
+  const handleToFinalizarCompra = async () => {
+    try {
+      // Save cartItems to Firestore
+      const db = getFirestore();
+      const cartItemsCollection = collection(db, 'cartItems');
+      await addDoc(cartItemsCollection, { items: cartItems });
+
+      // Navigate to finalizarcompra page
+      navigate("/finalizarcompra");
+    } catch (error) {
+      console.error("Error saving cart items to Firestore: ", error);
+    }
+  };
 
   return (
     <div>
@@ -60,7 +70,7 @@ const Carrinho = () => {
           />
         </div>
       ))}
-       <button onClick={handleToFinalizarCompra}>Finalizar Compra</button>
+      <button onClick={handleToFinalizarCompra}>Finalizar Compra</button>
     </div>
   );
 };

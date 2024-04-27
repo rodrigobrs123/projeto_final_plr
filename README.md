@@ -1,3 +1,44 @@
+### Documentação do Projeto Final  ##
+
+# OBSERVAÇÃO: A aplicação está lendo todos os dados e salvando no firebase 
+# A leitura é feita através do "projeto_final"
+# A escrita é feita através da coleção "CartItems"
+
+
+# Passo 1 
+# Ao entrar no site o sistema irá exibir a lista de produtos disponíveis para compra
+
+# Passo 2
+# Clicando na imagem do produto ou no botão "Detalhes do Produto" o sistema
+# redireciona a outra tela contendo os detalhes do produto escolhido
+
+# Passo 3
+# Através dos botões "+" e "-" você pode adicionar a quantidade de produtos desejados 
+# até o limite do estoque da nossa loja
+
+# Passo 4 
+# Clicar no botão adicionar ao carrinho 
+
+# Passo 5
+# Após é possível clicar no link para voltar a home page e selecionar mais produtos
+# ou clicar em ir para a cesta pelo botão "Ir para Cesta"
+
+# Passo 6
+# O sistema vai redirecionar a outra tela com todos os produtos escolhidos
+# reveja os produtos também é possível remover a quantidade caso deseje
+# OBSERVAÇÃO: O botão "Adicionar" consta na página mas a funcionalidade não foi implementada
+
+# Passo 7
+# Finalize a compra através do Botão "Finalizar Compra" no final da página
+# sua compra será finalizada
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
